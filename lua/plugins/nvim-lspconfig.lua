@@ -2,6 +2,7 @@ return {
   "neovim/nvim-lspconfig",
   opts = {
     servers = {
+      prismals = {},
       eslint = {},
       lua_ls = {
         settings = {
