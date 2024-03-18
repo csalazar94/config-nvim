@@ -15,5 +15,5 @@
 - Clone the configuration
 
   ```sh
-  git clone https://github.com/csalazar94/config-nvim.git ~/.config/nvim
+  git clone git@github.com:csalazar94/config-nvim.git ~/.config/nvim
   ```
