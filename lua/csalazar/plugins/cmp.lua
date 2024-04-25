@@ -3,6 +3,7 @@ return {
   dependencies = {
     "hrsh7th/cmp-buffer",
     "hrsh7th/cmp-path",
+    "hrsh7th/cmp-cmdline",
     "saadparwaiz1/cmp_luasnip",
   },
   config = function()
@@ -50,6 +51,25 @@ return {
         { name = "path" },
       }, {
         { name = 'buffer' },
+      })
+    })
+    cmp.setup.cmdline('/', {
+      mapping = cmp.mapping.preset.cmdline(),
+      sources = {
+        { name = 'buffer' }
+      }
+    })
+    cmp.setup.cmdline(':', {
+      mapping = cmp.mapping.preset.cmdline(),
+      sources = cmp.config.sources({
+        { name = 'path' }
+      }, {
+        {
+          name = 'cmdline',
+          option = {
+            ignore_cmds = { 'Man', '!' }
+          }
+        }
       })
     })
   end,
