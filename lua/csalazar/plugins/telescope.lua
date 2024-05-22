@@ -5,12 +5,24 @@ return {
     "nvim-lua/plenary.nvim"
   },
   config = function()
-    require('telescope').setup({})
+    local actions = require("telescope.actions")
+    require('telescope').setup({
+      defaults = {
+        mappings = {
+          i = {
+            ["<S-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
+          },
+          n = {
+            ["<S-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
+          },
+        },
+      },
+    })
 
     local builtin = require('telescope.builtin')
-    vim.keymap.set('n', '<leader>sf', builtin.git_files, {})
-    vim.keymap.set('n', '<leader>sF', builtin.find_files, {})
-    vim.keymap.set('n', '<leader>sg', builtin.live_grep, {})
+    vim.keymap.set('n', '<leader>sf', builtin.git_files)
+    vim.keymap.set('n', '<leader>sF', builtin.find_files)
+    vim.keymap.set('n', '<leader>sg', builtin.live_grep)
     vim.keymap.set('n', '<leader>sw', function()
       local word = vim.fn.expand("<cword>")
       builtin.grep_string({ search = word })
