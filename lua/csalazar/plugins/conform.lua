@@ -27,6 +27,7 @@ return {
         ["markdown.mdx"] = { "prettier" },
         graphql = { "prettier" },
         handlebars = { "prettier" },
+        go = { "goimports", "gofmt" },
       },
     })
     vim.api.nvim_create_user_command("FormatDisable", function(args)
