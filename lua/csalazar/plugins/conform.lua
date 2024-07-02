@@ -24,6 +24,7 @@ return {
         scss = { "prettier" },
         less = { "prettier" },
         html = { "prettier" },
+        htmldjango = { "prettier" },
         json = { "prettier" },
         jsonc = { "prettier" },
         yaml = { "prettier" },
