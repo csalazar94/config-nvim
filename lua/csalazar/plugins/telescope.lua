@@ -23,6 +23,7 @@ return {
     vim.keymap.set('n', '<leader>sf', builtin.git_files)
     vim.keymap.set('n', '<leader>sF', builtin.find_files)
     vim.keymap.set('n', '<leader>sg', builtin.live_grep)
+    vim.keymap.set('n', '<leader>sb', builtin.current_buffer_fuzzy_find)
     vim.keymap.set('n', '<leader>sw', function()
       local word = vim.fn.expand("<cword>")
       builtin.grep_string({ search = word })
