@@ -30,6 +30,13 @@ return {
             key = 'f',
           },
           {
+            icon = '󰙅 ',
+            desc = 'Neotree',
+            group = '@variable',
+            action = function() vim.cmd("Neotree toggle") end,
+            key = 'e',
+          },
+          {
             icon = '󰿅 ',
             desc = 'Quit',
             group = 'Label',
