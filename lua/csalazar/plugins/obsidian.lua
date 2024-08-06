@@ -6,11 +6,14 @@ return {
   dependencies = {
     "nvim-lua/plenary.nvim",
   },
+  keys = {
+    { "<leader>on", "<cmd>ObsidianNew<cr>", desc = "New note" },
+  },
   opts = {
     workspaces = {
       {
-        name = "personal",
-        path = "~/vaults/second-brain/",
+        name = "second-brain",
+        path = "~/Google Drive/My Drive/vaults/second-brain/",
       },
     },
     -- Optional, customize how note IDs are generated given an optional title.
@@ -35,6 +38,19 @@ return {
       folder = "inbox/dailies",
     },
     new_notes_location = "notes_subdir",
+    follow_url_func = function(url)
+      if jit then
+        if jit.os == "OSX" then
+          vim.fn.jobstart({ "open", url }) -- Mac OS
+        end
+        if jit.os == "Windows" then
+          vim.cmd(':silent exec "!start ' .. url .. '"') -- Windows
+        end
+        if jit.os == "Linux" then
+          vim.fn.jobstart({ "xdg-open", url }) -- linux
+        end
+      end
+    end,
   },
 
 }
