@@ -12,10 +12,11 @@ return {
   event = 'VimEnter',
   config = function()
     require('dashboard').setup {
+      theme = "doom",
       shuffle_letter = false,
       config = {
         header = vim.split(logo, "\n"),
-        shortcut = {
+        center = {
           { icon = '󰚰 ',
             desc = 'Sync',
             group = '@property',
@@ -23,7 +24,14 @@ return {
             key = 's',
           },
           {
-            icon = ' ',
+            icon = '󱋢 ',
+            desc = 'Recent Files',
+            group = '@variable',
+            action = 'Telescope oldfiles cwd_only=true',
+            key = 'r',
+          },
+          {
+            icon = '󰱽 ',
             desc = 'Files',
             group = '@variable',
             action = 'Telescope find_files',
@@ -44,8 +52,6 @@ return {
             key = 'q',
           },
         },
-        project = { enable = false },
-        mru = { limit = 10, cwd_only = true },
       },
     }
   end,
