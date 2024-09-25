@@ -6,14 +6,6 @@ return {
     "hrsh7th/cmp-path",
     "hrsh7th/cmp-cmdline",
     "saadparwaiz1/cmp_luasnip",
-    {
-      "Exafunction/codeium.nvim",
-      cmd = "Codeium",
-      build = ":Codeium Auth",
-      opts = {
-        enable_chat = true,
-      },
-    },
   },
   config = function()
     local has_words_before = function()
@@ -56,9 +48,6 @@ return {
         ['<CR>'] = cmp.mapping.confirm({ select = true }),
       }),
       sources = cmp.config.sources({
-        {
-          name = "codeium",
-        },
         { name = 'nvim_lsp' },
         { name = 'luasnip' },
         { name = "path" },
