@@ -31,7 +31,7 @@ return {
     require("mason-lspconfig").setup({
       ensure_installed = {
         "lua_ls", "rust_analyzer", "gopls", "pyright",
-        "tsserver", "astro", "bashls", "volar",
+        "ts_ls", "astro", "bashls", "volar",
         "cmake", "cssls", "dockerls", "eslint", "html",
         "htmx", "jsonls", "prismals", "sqls", "tailwindcss",
       },
@@ -41,8 +41,8 @@ return {
             capabilities = capabilities
           }
         end,
-        ["tsserver"] = function()
-          lspconfig["tsserver"].setup {
+        ["ts_ls"] = function()
+          lspconfig["ts_ls"].setup {
             capabilities = capabilities,
             init_options = {
               preferences = {
