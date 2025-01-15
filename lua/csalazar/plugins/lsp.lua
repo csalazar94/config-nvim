@@ -33,7 +33,7 @@ return {
         "lua_ls", "rust_analyzer", "gopls", "pyright",
         "ts_ls", "astro", "bashls", "volar",
         "cmake", "cssls", "dockerls", "eslint", "html",
-        "htmx", "jsonls", "prismals", "sqls", "tailwindcss",
+        "htmx", "jsonls", "prismals", "tailwindcss",
       },
       handlers = {
         function(server_name) -- default handler (optional)
