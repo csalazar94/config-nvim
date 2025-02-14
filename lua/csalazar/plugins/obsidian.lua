@@ -13,7 +13,7 @@ return {
     workspaces = {
       {
         name = "second-brain",
-        path = "~/Google Drive/My Drive/vaults/second-brain/",
+        path = "/Users/csalazar/Library/CloudStorage/GoogleDrive-camilosalazar94@gmail.com/My Drive/vaults/second-brain/",
       },
     },
     -- Optional, customize how note IDs are generated given an optional title.
