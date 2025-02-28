@@ -6,6 +6,9 @@ return {
       { "nvim-lua/plenary.nvim", branch = "master" },
     },
     build = "make tiktoken",
+    opts = {
+      model = 'claude-3.7-sonnet-thought',
+    },
     keys = {
       {
         "<leader>aa",
@@ -44,10 +47,17 @@ return {
       local chat = require("CopilotChat")
 
       vim.api.nvim_create_autocmd("BufEnter", {
-        pattern = "copilot-chat",
+        pattern = "copilot-*",
         callback = function()
           vim.opt_local.relativenumber = false
           vim.opt_local.number = false
+
+          local ft = vim.bo.filetype
+          if ft == "copilot-chat" then
+            vim.bo.filetype = "markdown"
+
+            vim.opt_local.spell = false
+          end
         end,
       })
 
