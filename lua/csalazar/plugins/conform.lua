@@ -19,7 +19,7 @@ return {
         javascriptreact = { "prettier" },
         typescript = { "prettier" },
         typescriptreact = { "prettier" },
-        vue = { "vue" },
+        vue = { "prettier" },
         css = { "prettier" },
         scss = { "prettier" },
         less = { "prettier" },
