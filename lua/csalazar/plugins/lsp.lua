@@ -31,11 +31,29 @@ return {
       handlers = {
         function(server_name) -- default handler (optional)
           lspconfig[server_name].setup {
-            capabilities = capabilities
+            capabilities = capabilities,
+          }
+        end,
+        gopls = function()
+          lspconfig.gopls.setup {
+            capabilities = capabilities,
+            settings = {
+              gopls = {
+                hints = {
+                  rangeVariableTypes = true,
+                  parameterNames = true,
+                  constantValues = true,
+                  assignVariableTypes = true,
+                  compositeLiteralFields = true,
+                  compositeLiteralTypes = true,
+                  functionTypeParameters = true,
+                },
+              },
+            },
           }
         end,
         volar = function()
-          lspconfig["volar"].setup {
+          lspconfig.volar.setup {
             capabilities = capabilities,
             init_options = {
               vue = {
@@ -60,7 +78,7 @@ return {
               enumMemberValues = { enabled = true },
             },
           }
-          lspconfig["vtsls"].setup {
+          lspconfig.vtsls.setup {
             capabilities = capabilities,
             filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx", "vue" },
             settings = {
