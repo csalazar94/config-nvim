@@ -7,7 +7,7 @@ return {
     },
     build = "make tiktoken",
     opts = {
-      model = 'claude-3.7-sonnet-thought',
+      model = 'claude-3.7-sonnet',
     },
     keys = {
       {
