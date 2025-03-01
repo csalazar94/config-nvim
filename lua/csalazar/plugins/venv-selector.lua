@@ -11,6 +11,6 @@ return {
     require("venv-selector").setup()
   end,
   keys = {
-    { "<leader>vs", "<cmd>VenvSelect<cr>" },
+    { "<leader>vs", "<cmd>VenvSelect<cr>", desc = "Select virtual environment" },
   },
 }

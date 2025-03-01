@@ -13,6 +13,6 @@ return {
         open_files_do_not_replace_types = { "terminal", "Trouble", "qf", "edgy", "copilot-chat" },
       },
     })
-    vim.keymap.set('n', "<leader>e", "<cmd>Neotree<cr>")
+    vim.keymap.set('n', "<leader>e", "<cmd>Neotree<cr>", { desc = "Toggle Neotree" })
   end
 }

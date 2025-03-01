@@ -61,25 +61,25 @@ return {
         source = "always",
       },
     })
-    vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
-    vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
-    vim.keymap.set('n', '<leader>sl', vim.diagnostic.open_float)
+    vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic' })
+    vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic' })
+    vim.keymap.set('n', '<leader>sl', vim.diagnostic.open_float, { desc = 'Open diagnostic float' })
     vim.api.nvim_create_autocmd('LspAttach', {
       group = vim.api.nvim_create_augroup('lsp-attach', { clear = true }),
       callback = function(event)
-        local map = function(keys, func)
-          vim.keymap.set('n', keys, func, { buffer = event.buf })
+        local map = function(keys, func, desc)
+          vim.keymap.set('n', keys, func, { buffer = event.buf, desc = desc })
         end
 
-        map('gd', require('telescope.builtin').lsp_definitions)
-        map('gr', require('telescope.builtin').lsp_references)
-        map('gI', require('telescope.builtin').lsp_implementations)
-        map('<leader>D', require('telescope.builtin').lsp_type_definitions)
-        map('<leader>ss', require('telescope.builtin').lsp_document_symbols)
-        map('<leader>rn', vim.lsp.buf.rename)
-        map('<leader>ca', vim.lsp.buf.code_action)
-        map('K', vim.lsp.buf.hover)
-        map('gD', vim.lsp.buf.declaration)
+        map('gd', require('telescope.builtin').lsp_definitions, 'Go to definition')
+        map('gr', require('telescope.builtin').lsp_references, 'Go to references')
+        map('gI', require('telescope.builtin').lsp_implementations, 'Go to implementations')
+        map('<leader>D', require('telescope.builtin').lsp_type_definitions, 'Go to type definitions')
+        map('<leader>ss', require('telescope.builtin').lsp_document_symbols, 'Search document symbols')
+        map('<leader>rn', vim.lsp.buf.rename, 'Rename symbol')
+        map('<leader>ca', vim.lsp.buf.code_action, 'Code action')
+        map('K', vim.lsp.buf.hover, 'Show hover information')
+        map('gD', vim.lsp.buf.declaration, 'Go to declaration')
       end,
     })
   end

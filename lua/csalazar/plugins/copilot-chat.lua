@@ -15,6 +15,7 @@ return {
         function()
           return require("CopilotChat").toggle()
         end,
+        desc = "Open copilot chat",
         mode = { "n", "v" },
       },
       {
@@ -22,16 +23,7 @@ return {
         function()
           return require("CopilotChat").reset()
         end,
-        mode = { "n", "v" },
-      },
-      {
-        "<leader>aq",
-        function()
-          local input = vim.fn.input("Quick Chat: ")
-          if input ~= "" then
-            require("CopilotChat").ask(input)
-          end
-        end,
+        desc = "Reset copilot chat",
         mode = { "n", "v" },
       },
       {
@@ -40,6 +32,7 @@ return {
           local actions = require("CopilotChat.actions")
           require("CopilotChat.integrations.telescope").pick(actions.prompt_actions())
         end,
+        desc = "Open copilot chat prompt actions",
         mode = { "n", "v" }
       },
     },
