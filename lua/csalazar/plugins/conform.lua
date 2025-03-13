@@ -36,7 +36,6 @@ return {
         if vim.g.disable_autoformat or vim.b[args.buf].disable_autoformat then
           return
         end
-        vim.lsp.buf.code_action({ apply = true, context = { only = { "source.organizeImports", }, diagnostics = {}, } })
         require("conform").format({
           bufnr = args.buf,
           timeout_ms = 1500,
@@ -44,6 +43,10 @@ return {
         })
       end,
     })
+
+    vim.keymap.set('n', '<leader>oi', function()
+      vim.lsp.buf.code_action({ apply = true, context = { only = { "source.organizeImports", }, diagnostics = {}, } })
+    end, { desc = "Organize imports" })
 
     vim.api.nvim_create_user_command("FormatDisable", function(args)
       if args.bang then
