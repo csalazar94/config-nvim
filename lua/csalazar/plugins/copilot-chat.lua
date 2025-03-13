@@ -8,6 +8,13 @@ return {
     build = "make tiktoken",
     opts = {
       model = 'claude-3.7-sonnet',
+      prompts = {
+        ReviewChanges = {
+          prompt = "Review changes",
+          system_prompt = "COPILOT_REVIEW",
+          context = "git:unstaged",
+        },
+      },
     },
     keys = {
       {
