@@ -17,8 +17,15 @@ return {
           },
         },
       },
+      extensions = {
+        ["ui-select"] = {
+          require("telescope.themes").get_dropdown {
+          }
+        }
+      }
     })
 
+    require("telescope").load_extension("ui-select")
     local builtin = require('telescope.builtin')
     vim.keymap.set('n', '<leader>sF', builtin.git_files, { desc = 'Find git files' })
     vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = 'Find files' })
