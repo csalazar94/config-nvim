@@ -15,6 +15,8 @@ return {
           context = "git:unstaged",
         },
       },
+      highlight_headers = false,
+      error_header = '> [!ERROR] Error',
     },
     keys = {
       {
@@ -36,8 +38,7 @@ return {
       {
         "<leader>ap",
         function()
-          local actions = require("CopilotChat.actions")
-          require("CopilotChat.integrations.telescope").pick(actions.prompt_actions())
+          require("CopilotChat").select_prompt()
         end,
         desc = "Open copilot chat prompt actions",
         mode = { "n", "v" }
@@ -54,9 +55,8 @@ return {
 
           local ft = vim.bo.filetype
           if ft == "copilot-chat" then
-            vim.bo.filetype = "markdown"
-
             vim.opt_local.spell = false
+            vim.opt_local.completeopt = "menu,preview,noinsert,popup"
           end
         end,
       })
