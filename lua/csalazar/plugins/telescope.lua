@@ -1,6 +1,6 @@
 return {
   "nvim-telescope/telescope.nvim",
-  tag = "0.1.5",
+  branch = '0.1.x',
   dependencies = {
     "nvim-lua/plenary.nvim"
   },
@@ -17,15 +17,7 @@ return {
           },
         },
       },
-      extensions = {
-        ["ui-select"] = {
-          require("telescope.themes").get_dropdown {
-          }
-        }
-      }
     })
-
-    require("telescope").load_extension("ui-select")
     local builtin = require('telescope.builtin')
     vim.keymap.set('n', '<leader>sF', builtin.git_files, { desc = 'Find git files' })
     vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = 'Find files' })

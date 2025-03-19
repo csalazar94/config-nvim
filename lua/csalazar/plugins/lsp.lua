@@ -20,23 +20,30 @@ return {
       cmp_lsp.default_capabilities()
     )
 
+    local flags = {
+      allow_incremental_sync = false,
+      debounce_text_changes = 1000,
+    }
+
     require("mason-lspconfig").setup({
       automatic_installation = true,
       ensure_installed = {
-        "lua_ls", "rust_analyzer", "gopls", "pyright",
+        "lua_ls", "gopls", "pyright",
         "astro", "bashls", "volar", "vtsls",
         "cmake", "cssls", "dockerls", "eslint", "html",
-        "htmx", "jsonls", "prismals", "tailwindcss",
+        "jsonls", "prismals", "tailwindcss",
       },
       handlers = {
         function(server_name) -- default handler (optional)
           lspconfig[server_name].setup {
             capabilities = capabilities,
+            flags = flags,
           }
         end,
         gopls = function()
           lspconfig.gopls.setup {
             capabilities = capabilities,
+            flags = flags,
             settings = {
               gopls = {
                 hints = {
@@ -55,6 +62,7 @@ return {
         volar = function()
           lspconfig.volar.setup {
             capabilities = capabilities,
+            flags = flags,
             init_options = {
               vue = {
                 hybridMode = true,
@@ -80,6 +88,7 @@ return {
           }
           lspconfig.vtsls.setup {
             capabilities = capabilities,
+            flags = flags,
             filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx", "vue" },
             settings = {
               complete_function_calls = true,
