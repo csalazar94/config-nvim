@@ -70,7 +70,7 @@ return {
           local ft = vim.bo.filetype
           if ft == "copilot-chat" then
             vim.opt_local.spell = false
-            vim.opt_local.completeopt = "menu,preview,noinsert,popup"
+            vim.opt_local.completeopt = "menu,popup,noinsert,noselect"
           end
         end,
       })
