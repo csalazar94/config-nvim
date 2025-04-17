@@ -17,6 +17,7 @@ return {
       },
       highlight_headers = false,
       error_header = '> [!ERROR] Error',
+      auto_insert_mode = false,
     },
     keys = {
       {

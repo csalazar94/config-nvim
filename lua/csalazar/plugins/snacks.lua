@@ -2,8 +2,7 @@ return {
   "folke/snacks.nvim",
   ---@type snacks.Config
   opts = {
-    picker = {
-      enabled = true,
-    },
+    input = { enabled = true },
+    picker = { enabled = true },
   },
 }
