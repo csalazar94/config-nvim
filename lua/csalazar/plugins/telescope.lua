@@ -10,10 +10,10 @@ return {
       defaults = {
         mappings = {
           i = {
-            ["<S-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
+            ["<c-s>"] = actions.send_selected_to_qflist + actions.open_qflist,
           },
           n = {
-            ["<S-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
+            ["<c-s>"] = actions.send_selected_to_qflist + actions.open_qflist,
           },
         },
       },
