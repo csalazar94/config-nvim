@@ -4,7 +4,9 @@ return {
   config = function()
     require("conform").setup({
       formatters = {
-        injected = { options = { ignore_errors = true } },
+        injected = {
+          options = { ignore_errors = true },
+        },
       },
       formatters_by_ft = {
         lua = { "stylua" },
@@ -25,7 +27,7 @@ return {
         markdown = { "prettier" },
         ["markdown.mdx"] = { "prettier" },
         graphql = { "prettier" },
-        handlebars = { "prettier" },
+        handlebars = { "djlint" },
         go = { "goimports", "gofmt" },
       },
     })
