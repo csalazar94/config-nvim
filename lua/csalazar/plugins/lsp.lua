@@ -29,9 +29,10 @@ return {
       automatic_installation = true,
       ensure_installed = {
         "lua_ls", "gopls", "pyright",
-        "astro", "bashls", "volar", "ts_ls",
+        "astro", "bashls", "ts_ls",
         "cmake", "cssls", "dockerls", "eslint", "html",
         "jsonls", "prismals", "tailwindcss",
+        -- "volar", "djlint"
       },
       handlers = {
         function(server_name) -- default handler (optional)
