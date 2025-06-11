@@ -29,4 +29,4 @@ vim.opt.colorcolumn = "80"
 
 vim.opt.clipboard = "unnamedplus"
 
-vim.opt.conceallevel = 1
+vim.opt.conceallevel = 2

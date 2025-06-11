@@ -7,9 +7,13 @@ return {
     "nvim-lua/plenary.nvim",
   },
   keys = {
-    { "<leader>on", "<cmd>ObsidianNew<cr>", desc = "New note" },
+    { "<leader>on", "<cmd>ObsidianNew<cr>",   desc = "New note" },
+    { "<leader>od", "<cmd>ObsidianToday<cr>", desc = "New daily note" },
   },
   opts = {
+    ui = {
+      enable = false,
+    },
     workspaces = {
       {
         name = "second-brain",
@@ -36,6 +40,10 @@ return {
     notes_subdir = "inbox",
     daily_notes = {
       folder = "inbox/dailies",
+      template = "new-daily-notes-template.md",
+    },
+    templates = {
+      folder = "templates",
     },
     new_notes_location = "notes_subdir",
     follow_url_func = function(url)
