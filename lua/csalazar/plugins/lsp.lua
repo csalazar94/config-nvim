@@ -41,6 +41,10 @@ return {
             flags = flags,
           }
         end,
+        tsserver = function()
+          -- disable tsserver
+          return true
+        end,
         eslint = function()
           lspconfig.eslint.setup {
             capabilities = capabilities,
