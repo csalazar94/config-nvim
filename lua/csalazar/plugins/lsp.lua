@@ -29,10 +29,10 @@ return {
       automatic_installation = true,
       ensure_installed = {
         "lua_ls", "gopls", "pyright",
-        "astro", "bashls", "ts_ls",
+        "astro", "bashls", "vtsls",
         "cmake", "cssls", "dockerls", "eslint", "html",
         "jsonls", "prismals", "tailwindcss",
-        -- "volar", "djlint"
+        -- "volar", "djlint", "ts_ls"
       },
       handlers = {
         function(server_name) -- default handler (optional)
@@ -42,6 +42,10 @@ return {
           }
         end,
         tsserver = function()
+          -- disable tsserver
+          return true
+        end,
+        ts_ls = function()
           -- disable tsserver
           return true
         end,
@@ -80,46 +84,6 @@ return {
               },
             },
             filetypes = { "vue" },
-          }
-        end,
-        ts_ls = function()
-          local jstsconfig = {
-            updateImportsOnFileMove = { enabled = "always" },
-            suggest = {
-              completeFunctionCalls = true,
-            },
-            inlayHints = {
-              includeInlayParameterNameHints = 'all',
-              includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-              includeInlayFunctionParameterTypeHints = true,
-              includeInlayVariableTypeHints = true,
-              includeInlayVariableTypeHintsWhenTypeMatchesName = true,
-              includeInlayPropertyDeclarationTypeHints = true,
-              includeInlayFunctionLikeReturnTypeHints = true,
-              includeInlayEnumMemberValueHints = true,
-            },
-          }
-
-          lspconfig.ts_ls.setup {
-            capabilities = capabilities,
-            flags = flags,
-            filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx", "vue" },
-            init_options = {
-              plugins = {
-                {
-                  name = "@vue/typescript-plugin",
-                  location = vim.fn.stdpath 'data' ..
-                      '/mason/packages/vue-language-server/node_modules/@vue/language-server',
-                  languages = { "vue" },
-                  configNamespace = "typescript",
-                  enableForWorkspaceTypeScriptVersions = true,
-                },
-              },
-            },
-            settings = {
-              javascript = jstsconfig,
-              typescript = jstsconfig,
-            },
           }
         end,
       },

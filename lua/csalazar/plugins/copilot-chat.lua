@@ -5,20 +5,29 @@ return {
       { "zbirenbaum/copilot.lua" },
       { "nvim-lua/plenary.nvim", branch = "master" },
     },
+    selection = function(source)
+      return select.visual(source) or select.buffer(source)
+    end,
     build = "make tiktoken",
-    opts = {
-      model = 'claude-sonnet-4',
-      prompts = {
-        ReviewChanges = {
-          prompt = "Review changes",
-          system_prompt = "COPILOT_REVIEW",
-          context = "git:unstaged",
+    opts = function()
+      local user = vim.env.USER or "User"
+
+      return {
+        prompts = {
+          ReviewChanges = {
+            prompt = "Review changes",
+            system_prompt = "COPILOT_REVIEW",
+            context = "git:unstaged",
+          },
         },
-      },
-      highlight_headers = false,
-      error_header = '> [!ERROR] Error',
-      auto_insert_mode = false,
-    },
+        highlight_headers = false,
+        auto_insert_mode = false,
+        headers = {
+          user = "##   " .. user .. " ",
+          assistant = "##   Copilot ",
+        },
+      }
+    end,
     keys = {
       {
         "<leader>aa",
