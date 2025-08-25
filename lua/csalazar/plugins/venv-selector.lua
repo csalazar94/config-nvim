@@ -7,10 +7,10 @@ return {
   },
   lazy = false,
   branch = "regexp", -- This is the regexp branch, use this for the new version
-  config = function()
-    require("venv-selector").setup()
-  end,
   keys = {
-    { "<leader>vs", "<cmd>VenvSelect<cr>", desc = "Select virtual environment" },
+    { "<leader>vs", "<cmd>VenvSelect<cr>" },
+  },
+  opts = {
+    -- Your settings go here
   },
 }
