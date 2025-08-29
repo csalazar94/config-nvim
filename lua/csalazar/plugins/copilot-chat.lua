@@ -17,7 +17,18 @@ return {
           ReviewChanges = {
             prompt = "Review changes",
             system_prompt = "COPILOT_REVIEW",
-            context = "git:unstaged",
+            resources = { "gitdiff:unstaged" },
+          },
+          PullRequest = {
+            prompt = [[
+Generate a Pull Request title and description from the current branch changes,
+following best practices. Format the output as a Markdown code bloc. Include:
+• Concise and descriptive title
+• Summary of changes
+• Motivation for changes
+• References to related issues (e.g., "Closes #123") if applicable
+• Important notes for reviewers
+]],
           },
         },
         highlight_headers = false,
