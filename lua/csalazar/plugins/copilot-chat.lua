@@ -29,6 +29,7 @@ following best practices. Format the output as a Markdown code bloc. Include:
 • References to related issues (e.g., "Closes #123") if applicable
 • Important notes for reviewers
 ]],
+            resources = { "gitdiff:main" },
           },
         },
         highlight_headers = false,
